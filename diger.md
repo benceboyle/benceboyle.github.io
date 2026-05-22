@@ -1,0 +1,3 @@
+# Diğer
+
+Diğer her şey.

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<head>
+
+    <title>
+        {% if page.title == site.title %}
+            {{ page.title }}
+        {% elsif page.title == nil or page.title == "" %}
+            {{ site.title }}
+        {% else %}
+            {{ page.title }} | {{ site.title }}
+        {% endif %}
+    </title>
+  
+    <link rel="stylesheet" type="text/css" href="css/neat.css">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+</head>
+
+<body>
+    <nav>
+        <a href="/">Anasayfa</a> &bull; <a href="/yaz">Yaz</a> &bull; <a href="/baglantilar">Bağlantılar</a> &bull; <a href="/hakkimda">Hakkımda</a>
+    </nav>
+
+    {{ content }}
+
+    <p class="center" style="margin-top: 3em; opacity: 0.4;"> Bence © Böyle Inc.</p>
+
+</body>
+
+</html>

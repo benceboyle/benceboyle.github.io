@@ -1,0 +1,41 @@
+:root {
+    border-top: none;
+}
+
+h2, h3, h4, h5 {
+    margin-top: 2em;
+}
+
+nav {
+    text-align: center;
+    color: color-mix(in srgb, var(--dark) 40%, transparent);
+    margin-top: 0.5em;
+}
+
+nav a {
+    color: var(--dark);
+}
+
+.comment {
+    text-align: center;
+    color: color-mix(in srgb, var(--dark) 40%, transparent);
+    margin-top: 4em;
+}
+
+.comment a {
+    color: var(--dark);
+}
+
+.af-element {
+    margin-top: 1em;
+}
+
+.center-image {
+  display: block;
+  margin: 0 auto;
+}   
+
+.resize-image {
+  width: 10%;
+  height: auto; /* Maintains aspect ratio */
+}   
