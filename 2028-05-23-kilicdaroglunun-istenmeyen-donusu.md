@@ -1,4 +1,4 @@
-<img src="/assets/images/lawrence-of-turkiye.jpg" alt="Lawrence of Türkiye" width="200" height="100">
+<img src="/assets/images/lawrence-of-turkiye.jpg" alt="Lawrence of Türkiye" class="main-image center-image">
 
 *23 Mayıs 2026*
 

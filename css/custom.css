@@ -33,9 +33,14 @@ nav a {
 .center-image {
   display: block;
   margin: 0 auto;
+  padding: inherit;
 }   
 
 .resize-image {
   width: 10%;
   height: auto; /* Maintains aspect ratio */
-}   
+}
+
+.main-image {
+  width: 300px;
+}
