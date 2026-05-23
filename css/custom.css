@@ -42,5 +42,5 @@ nav a {
 }
 
 .main-image {
-  width: 300px;
+  max-height: 300px;
 }
