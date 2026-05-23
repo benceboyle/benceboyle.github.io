@@ -1,3 +1,3 @@
 # Hakkımda
 
-Belki bir gün bir şeyler gelir buraya.
+Bence Böyle, kişisel blogum. Yazılarım, düşüncelerim ve paylaşımlarım burada yer alıyor. Hayat, teknoloji, seyahat ve daha fazla hakkında yazılarımı okuyabilirsiniz.
