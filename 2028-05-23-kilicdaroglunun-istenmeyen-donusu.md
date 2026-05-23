@@ -1,8 +1,15 @@
-<img src="/assets/images/lawrence-of-turkiye.jpg" alt="Lawrence of Türkiye" class="main-image center-image">
+---
+title: "Kılıçdaroğlu'nun İstenmeyen Dönüşü"
+description: "Kılıçdaroğlu zamanında kendisine oy vermiş, desteklemiş insanların nefretini kazanmaktan neden hiç çekinmiyor?"
+image: /assets/images/lawrence-of-turkiye.jpg
+date: "23 Mayıs 2026"
+---
 
-*23 Mayıs 2026*
+<img src="{{ page.image }}" alt="{{ page.title }}" class="main-image center-image">
 
-# Kılıçdaroğlu'nun İstenmeyen Dönüşü
+*{{ page.date }}*
+
+# {{ page.title }}
 
 20 Mayıs 2026 Çarşamba Kemal Kılıçdaroğlu'nun, ben geliyorum dercesine yayımladığı videosu sonrası CHP'nin başına nasıl atandığını hepimiz izliyoruz. İzliyoruz ve bir insanın bu duruma nasıl düştüğüne akıl erdirmeye çalışıyoruz.
 
@@ -10,7 +17,7 @@ Durumun hazırlayıcısı, AKP'li siyasiler ve gazeteciler sağlanan propaganda 
 
 Zamanında çeşitli sebeplerle CHP'nin karar merkezlerinden uzaklaşmış olanlar veya Kılıçdaroğlu ile belli olanaklara ulaşabileceğini düşünenler çok mutlu görünüyor. Hatta MK diye bir televizyon kanalında (Mustafa Kemal'in kısaltmasıymış) "Kılıçdaroğlu'nun Mükemmel Dönüşü" diye bir yazıyı ekranda görmek mümkün oldu. Hayır dalga geçmiyorlar. Onlara mükemmel bir fırsat olarak görünüyor.
 
-Peki Kılıçdaroğlu'nun zamanında kendisine oy vermiş, desteklemiş insanların nefretini kazanmaktan neden hiç çekinmiyor? Amacı ne? Aklıma 3 seçenek geliyor:
+Peki Kılıçdaroğlu zamanında kendisine oy vermiş, desteklemiş insanların nefretini kazanmaktan neden hiç çekinmiyor? Amacı ne? Aklıma 3 seçenek geliyor:
 
 1- Bir açığı var ve AKP bunu ona karşı kullanıp istediğini yaptırıyor. Sopa ve havuç  insanlar için çok etkili olabiliyor. Kılıçdaroğlu'nun bir açığı olsa, bu konuda bir bilgi basına yansırdı diye düşünüyorum. Ayrıca Kılıçdaroğlu'nun da bunu zorla yapıyormuş gibi bir hali yok. Çok muhtemel olduğunu düşünmediğim bir ihtimal.
 2- Kişisel hırsı yüzünden gözü körelmiş, tek amacı gücü elinde tutmak ne ülke ne CHP hiçbir şey umurumda değil. Bu kadar hırslı biri olsa CHP Genel Başkanı iken başbakan ya da sonrasında Cumhurbaşkanı olmak için elinden geleni yapan, ısrarcılığını her aşamada gösteren bir kişi olması beklenir ancak bu da bildiğimiz 13 seçim kaybeden Kılıçdaroğlu'na hiç benzemiyor.
