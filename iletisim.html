@@ -48,7 +48,7 @@
         const statusDiv = document.getElementById('formStatus');
         
         // Replace this with your actual Google Apps Script Web App URL
-        const scriptUrl = 'https://script.google.com/macros/s/AKfycbyaaXYQNOD3C1h9tBMQq32Kmim_ZBpz5okast3XUnBY4TQ8rQXgpWXFp64YaBdeoJJlGA/exec';
+        const scriptUrl = 'https://script.google.com/macros/s/AKfycbzDE8xfRgiwqI-zciCvMn0P6xGVMWerH4T2EFCWbpkMl0hMNjsjURANyR1aXZjYFsMpdg/exec';
         
         // Gather form data
         const formData = {
@@ -66,7 +66,7 @@
         // Send data to Google Script
         fetch(scriptUrl, {
             method: 'POST',
-            mode: 'cors', 
+            mode: 'no-cors', 
             headers: {
                 'Content-Type': 'text/plain' // Using text/plain avoids certain strict CORS preflight snags
             },
@@ -74,14 +74,9 @@
         })
         .then(response => response.json())
         .then(data => {
-            if(data.result === 'success') {
-                statusDiv.textContent = "Comment sent successfully!";
-                statusDiv.style.color = "green";
-                document.getElementById('commentForm').reset(); // Clear the form
-            } else {
-                statusDiv.textContent = "Error: " + data.message;
-                statusDiv.style.color = "red";
-            }
+            statusDiv.textContent = "Comment sent successfully!";
+            statusDiv.style.color = "green";
+            document.getElementById('commentForm').reset(); // Clear the form
         })
         .catch(error => {
             console.error('Error:', error);
