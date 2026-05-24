@@ -42,41 +42,38 @@
 
 <script>
     document.getElementById('commentForm').addEventListener('submit', function(e) {
-        e.preventDefault(); // Stop page from reloading
+        e.preventDefault(); 
         
         const submitBtn = document.getElementById('submitBtn');
         const statusDiv = document.getElementById('formStatus');
+        const scriptUrl = 'https://script.google.com/macros/s/AKfycbzhlU5YszHQqKM6yKBgbtZes1xCpT2vZvrHvpG-5YiafWjGF_gw2LhDpiZZDmBAvg3eCg/exec';
         
-        // Replace this with your actual Google Apps Script Web App URL
-        const scriptUrl = 'https://script.google.com/macros/s/AKfycbzDE8xfRgiwqI-zciCvMn0P6xGVMWerH4T2EFCWbpkMl0hMNjsjURANyR1aXZjYFsMpdg/exec';
+        // 1. Use standard FormData instead of a JSON object
+        const formData = new FormData();
+        formData.append('name', document.getElementById('name').value);
+        formData.append('email', document.getElementById('email').value);
+        formData.append('comment', document.getElementById('comment').value);
         
-        // Gather form data
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            comment: document.getElementById('comment').value,
-            honeypot: document.getElementById('honeypot').value
-        };
+        // If you implemented the honeypot:
+        const honeypotVal = document.getElementById('honeypot') ? document.getElementById('honeypot').value : '';
+        formData.append('honeypot', honeypotVal);
         
-        // UI Updates
         submitBtn.disabled = true;
         statusDiv.textContent = "Sending your comment...";
         statusDiv.style.color = "black";
 
-        // Send data to Google Script
+        // 2. Send as a standard form submission
         fetch(scriptUrl, {
             method: 'POST',
-            mode: 'no-cors', 
-            headers: {
-                'Content-Type': 'text/plain' // Using text/plain avoids certain strict CORS preflight snags
-            },
-            body: JSON.stringify(formData)
+            mode: 'no-cors', // Keeps CORS errors away
+            body: formData   // Sending FormData automatically sets correct headers
         })
-        .then(response => response.json())
-        .then(data => {
-            statusDiv.textContent = "Comment sent successfully!";
+        .then(() => {
+            // Because of no-cors + CORB, we don't try to read response.json() anymore.
+            // We just assume that if the fetch network call completed, Google got it!
+            statusDiv.textContent = "Comment submitted successfully!";
             statusDiv.style.color = "green";
-            document.getElementById('commentForm').reset(); // Clear the form
+            document.getElementById('commentForm').reset(); 
         })
         .catch(error => {
             console.error('Error:', error);
