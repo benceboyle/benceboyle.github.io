@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Contact Form</title>
+    <title>İletişim</title>
+    
+    <link rel="stylesheet" type="text/css" href="css/neat.css">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    
     <style>
         /* Optional basic styling */
         .comment-box { max-width: 400px; margin: 20px auto; font-family: sans-serif; }
@@ -15,75 +19,79 @@
     </style>
 </head>
 <body>
+    <nav>
+        <a href="/">Anasayfa</a> &bull; <a href="/baglantilar">Bağlantılar</a> &bull; <a href="/iletisim">İletişim</a> &bull; <a href="/hakkimda">Hakkımda</a>
+    </nav>
 
-<div class="comment-box">
-    <h3>Leave a Comment</h3>
-    <form id="commentForm">
-        <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" id="name" required>
-        </div>
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" required>
-        </div>
-        <div class="form-group">
-            <label for="comment">Comment:</label>
-            <textarea id="comment" rows="5" required></textarea>
-        </div>
-        <button type="submit" id="submitBtn">Submit Comment</button>
-        <div style="display:none;">
-            <label>Keep this field blank</label>
-            <input type="text" id="honeypot" autocomplete="off">
-        </div>
-    </form>
-    <div id="formStatus"></div>
-</div>
+    <div class="comment-box">
+        <h3>Yorum Yapın</h3>
+        <form id="commentForm">
+            <div class="form-group">
+                <label for="name">İsim:</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-posta:</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="comment">Yorum:</label>
+                <textarea id="comment" rows="5" required></textarea>
+            </div>
+            <button type="submit" id="submitBtn">Gönder</button>
+            <div style="display:none;">
+                <label>Keep this field blank</label>
+                <input type="text" id="honeypot" autocomplete="off">
+            </div>
+        </form>
+        <div id="formStatus"></div>
+    </div>
 
-<script>
-    document.getElementById('commentForm').addEventListener('submit', function(e) {
-        e.preventDefault(); 
-        
-        const submitBtn = document.getElementById('submitBtn');
-        const statusDiv = document.getElementById('formStatus');
-        const scriptUrl = 'https://script.google.com/macros/s/AKfycbzpevnVUtilnBenoevMoVXNtQVXrSRCaMOqCTtL8CMNMnqafou2UgKtCBj9A8K6fQ8Kbw/exec';
+    <script>
+        document.getElementById('commentForm').addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const statusDiv = document.getElementById('formStatus');
+            const scriptUrl = 'https://script.google.com/macros/s/AKfycby8zzlh0YQY3L3mDLF-oAbEhGXBTmegfwenZQaTuHTVGc5RTlww_a45ud0pDxgPgSfJnA/exec'
 
-        const formData = new FormData();
-        formData.append('name', document.getElementById('name').value);
-        formData.append('email', document.getElementById('email').value);
-        formData.append('comment', document.getElementById('comment').value);
-        
-        // If you implemented the honeypot:
-        const honeypotVal = document.getElementById('honeypot') ? document.getElementById('honeypot').value : '';
-        formData.append('honeypot', honeypotVal);
-        
-        submitBtn.disabled = true;
-        statusDiv.textContent = "Sending your comment...";
-        statusDiv.style.color = "black";
+            const formData = new FormData();
+            formData.append('name', document.getElementById('name').value);
+            formData.append('email', document.getElementById('email').value);
+            formData.append('comment', document.getElementById('comment').value);
+            
+            // If you implemented the honeypot:
+            const honeypotVal = document.getElementById('honeypot') ? document.getElementById('honeypot').value : '';
+            formData.append('honeypot', honeypotVal);
+            
+            submitBtn.disabled = true;
+            statusDiv.textContent = "Yorumunuz gönderiliyor...";
+            statusDiv.style.color = "black";
 
-        // 2. Send as a standard form submission
-        fetch(scriptUrl, {
-            method: 'POST',
-            mode: 'no-cors', // Keeps CORS errors away
-            body: formData   // Sending FormData automatically sets correct headers
-        })
-        .then(() => {
-            // Because of no-cors + CORB, we don't try to read response.json() anymore.
-            // We just assume that if the fetch network call completed, Google got it!
-            statusDiv.textContent = "Comment submitted successfully!";
-            statusDiv.style.color = "green";
-            document.getElementById('commentForm').reset(); 
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            statusDiv.textContent = "An error occurred while sending.";
-            statusDiv.style.color = "red";
-        })
-        .finally(() => {
-            submitBtn.disabled = false;
+            // 2. Send as a standard form submission
+            fetch(scriptUrl, {
+                method: 'POST',
+                mode: 'no-cors', // Keeps CORS errors away
+                body: formData   // Sending FormData automatically sets correct headers
+            })
+            .then(() => {
+                // Because of no-cors + CORB, we don't try to read response.json() anymore.
+                // We just assume that if the fetch network call completed, Google got it!
+                statusDiv.textContent = "Yorum başarıyla gönderildi!";
+                statusDiv.style.color = "green";
+                document.getElementById('commentForm').reset(); 
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                statusDiv.textContent = "Gönderme başarısız.";
+                statusDiv.style.color = "red";
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+            });
         });
-    });
-</script>
+    </script>
 
 </body>
+
 </html>
