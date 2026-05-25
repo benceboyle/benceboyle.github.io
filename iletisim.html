@@ -46,9 +46,8 @@
         
         const submitBtn = document.getElementById('submitBtn');
         const statusDiv = document.getElementById('formStatus');
-        const scriptUrl = 'https://script.google.com/macros/s/AKfycbzhlU5YszHQqKM6yKBgbtZes1xCpT2vZvrHvpG-5YiafWjGF_gw2LhDpiZZDmBAvg3eCg/exec';
-        
-        // 1. Use standard FormData instead of a JSON object
+        const scriptUrl = 'https://script.google.com/macros/s/AKfycbxncO0a_GXbq96d71Y5EEsmwGWjN5v9MyibAMwkwDtXXy5WYM4Qswyr1Uq1GkDj5l3l7A/exec';
+
         const formData = new FormData();
         formData.append('name', document.getElementById('name').value);
         formData.append('email', document.getElementById('email').value);
